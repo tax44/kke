@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON 데이터 웹사이트</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        pre { background: #f4f4f4; padding: 10px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>시계 탑에 흐른 피 - 조선 확장</h1>
+    <h2>제작: Jacki</h2>
+    <h3>내용:</h3>
+    <pre id="json-content">로딩 중...</pre>
+    
+    <script>
+        // JSON 데이터 불러오기
+        fetch('blood_on_the_clocktower_korea.json') // JSON 파일 경로 설정
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('json-content').textContent = data.content;
+            })
+            .catch(error => {
+                document.getElementById('json-content').textContent = '데이터를 불러오는 데 실패했습니다.';
+                console.error('Error fetching JSON:', error);
+            });
+    </script>
+</body>
+</html>
